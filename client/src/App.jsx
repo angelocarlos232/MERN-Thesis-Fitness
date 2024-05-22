@@ -10,6 +10,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import Login from './components/pages/Authentication/Login';
 import Register from './components/pages/Authentication/Register';
+import PrivateRoute from './components/Private/PrivateRoute';
 
 
 const MainLayout = ({ children }) => {
@@ -43,9 +44,11 @@ function App() {
           <Route element={<MainLayout><Authentication /></MainLayout>} path="/Authentication" />
           <Route element={<MainLayout><Login /></MainLayout>} path="/login" />
           <Route element={<MainLayout><Register /></MainLayout>} path="/register" />
-          <Route element={<MainLayout><Dashboard /></MainLayout>} path="/dashboard" />
-          <Route element={<MainLayout><Workouts/></MainLayout>} path="/workouts" />
-          <Route element={<MainLayout><Workouts/></MainLayout>} path="/workouts" />
+
+          <Route element={<MainLayout><PrivateRoute/></MainLayout>} >
+            <Route element={<Dashboard />} path="/dashboard" />
+            <Route element={<Workouts/>} path="/workouts" />
+          </Route>
       </Routes>
     </Router>
   );

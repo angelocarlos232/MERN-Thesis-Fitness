@@ -20,6 +20,18 @@
     align-items: center;
     justify-content: center;
     height: 20vh;
+    border-bottom: 1px solid #cc0000;
+}
+
+.logo-part-2-with-user img{
+    height: 10vh;
+}
+.logo-part-2-with-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    border-bottom: 1px solid #cc0000;;
 }
 
 .logo-part-2 img{

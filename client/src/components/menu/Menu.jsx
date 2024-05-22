@@ -7,22 +7,42 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import InfoIcon from '@mui/icons-material/Info';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom';
+import {useSelector} from 'react-redux'
+import { current } from '@reduxjs/toolkit';
 
 const Menu = () => {
 
 
   const usersample = "Juan Dela Cruz";
+  const {currentUser} = useSelector(state => state.user)
 
   return (
     <div>
       <div className='px-3'>
         <div className='menu-container flex-col'>
-            <div className='logo-part-2-container flex items-center'>
+            
+
+            {currentUser ? (<>
+              <div className='logo-part-2-container flex items-center'>
               <div className='logo-part-2'><img src={Logo} alt="Logo"></img></div>
               <div className='flex-col items-center leading-3 ml-2 text-slate-50'>
-                <p className='text-l font-medium'>{usersample}</p>
-                <p className='text-xs'>Data example</p>
-              </div>
+              <p className='text-l font-medium'>{currentUser.username}</p>
+              <p className='text-xs'>Data example</p>
+              </div></div></>) : 
+              (<><div className='logo-part-2-with-user'><img src={Logo} alt="Logo"></img></div></>)}
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
           <div className='menu-part'>
             <ul>
@@ -50,7 +70,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-    </div>
+
   )
 }
 
